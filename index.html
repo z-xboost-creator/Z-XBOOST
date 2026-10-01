@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07000d">
+
+<title>Z-XBOOST | Tools Premium</title>
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    background:#020006;
+    overflow-x:hidden;
+}
+
+
+/* ================= BACKGROUND ================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        #861cff38,
+        transparent 28%
+    ),
+    radial-gradient(
+        circle at 0% 45%,
+        #5700ff20,
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 100% 65%,
+        #c000ff18,
+        transparent 30%
+    );
+
+    z-index:-2;
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    opacity:.10;
+
+    background-image:
+    linear-gradient(
+        #8d38ff 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        #8d38ff 1px,
+        transparent 1px
+    );
+
+    background-size:55px 55px;
+
+    mask-image:
+    linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+
+    z-index:-1;
+}
+
+
+/* ================= PARTICLES ================= */
+
+.particle{
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#bd63ff;
+
+    box-shadow:
+    0 0 14px #a52cff;
+
+    opacity:.7;
+
+    animation:
+    float 6s infinite ease-in-out;
+
+    z-index:-1;
+}
+
+.p1{
+    left:10%;
+    top:25%;
+}
+
+.p2{
+    left:80%;
+    top:18%;
+    animation-delay:1s;
+}
+
+.p3{
+    left:25%;
+    top:70%;
+    animation-delay:2s;
+}
+
+.p4{
+    left:90%;
+    top:75%;
+    animation-delay:3s;
+}
+
+.p5{
+    left:50%;
+    top:45%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+        opacity:.25;
+    }
+
+    50%{
+        transform:translateY(-35px);
+        opacity:1;
+    }
+
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    padding:14px 0;
+
+    background:
+    rgba(3,0,7,.82);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:
+    1px solid #a52cff35;
+
+    box-shadow:
+    0 5px 30px #0008;
+}
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:1000;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#c04cff;
+
+    text-shadow:
+    0 0 8px #8d22ff,
+    0 0 22px #8d22ff,
+    0 0 40px #7b18ff;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    padding:7px 13px;
+
+    border-radius:50px;
+
+    background:#15071f;
+
+    border:
+    1px solid #9635c9;
+
+    font-size:10px;
+    font-weight:bold;
+
+    color:#e1baff;
+
+    box-shadow:
+    0 0 18px #8d22ff20;
+}
+
+.status i{
+    width:7px;
+    height:7px;
+
+    background:#bd4cff;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 12px #c04cff;
+
+    animation:
+    pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    50%{
+        opacity:.4;
+        transform:scale(.7);
+    }
+
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+    padding:58px 0 30px;
+}
+
+.mini{
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border:
+    1px solid #9437c5;
+
+    background:#16071e;
+
+    color:#dda3ff;
+
+    border-radius:50px;
+
+    font-size:10px;
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+
+    box-shadow:
+    0 0 25px #8d22ff18;
+}
+
+.hero h1{
+    font-size:
+    clamp(45px,11vw,85px);
+
+    line-height:.95;
+
+    font-weight:1000;
+
+    letter-spacing:-4px;
+
+    color:#fff;
+
+    text-shadow:
+    0 0 8px #a03cff,
+    0 0 30px #7a19ff,
+    0 0 70px #6c16ff;
+}
+
+.hero h1 span{
+    color:#bf50ff;
+}
+
+.hero h2{
+    margin-top:16px;
+
+    font-size:15px;
+
+    letter-spacing:5px;
+
+    color:#e0c1ff;
+
+    font-weight:900;
+}
+
+.hero p{
+    max-width:680px;
+
+    margin:
+    18px auto 0;
+
+    color:#aa9bb5;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+
+/* ================= BUTTON ================= */
+
+.hero-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+
+    padding:
+    14px 22px;
+
+    border-radius:14px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.btn-main{
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7118dc,
+        #c348ff
+    );
+
+    box-shadow:
+    0 0 20px #8c2eff55,
+    inset 0 1px #ffffff44;
+}
+
+.btn-main:hover{
+    transform:
+    translateY(-3px)
+    scale(1.02);
+
+    box-shadow:
+    0 0 40px #9c35ff88;
+}
+
+.btn-second{
+    color:#ddbaff;
+
+    border:
+    1px solid #71328d;
+
+    background:#100619;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+
+/* ================= FOTO ================= */
+
+.gallery{
+    width:78%;
+    max-width:760px;
+
+    margin:
+    10px auto 35px;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:190px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:
+    1px solid #a13bff66;
+
+    box-shadow:
+    0 0 25px #6d1aff22,
+    0 20px 50px #000;
+
+    transition:.35s;
+}
+
+.gallery img:hover{
+    transform:
+    translateY(-6px)
+    scale(1.015);
+
+    border-color:#c05aff;
+
+    box-shadow:
+    0 0 35px #8d27ff55;
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+    position:relative;
+
+    margin:
+    22px 0;
+
+    padding:27px;
+
+    border-radius:25px;
+
+    border:
+    1px solid #7627a955;
+
+    background:
+    linear-gradient(
+        145deg,
+        #180a23ee,
+        #07030cee
+    );
+
+    box-shadow:
+    0 20px 60px #0009,
+    inset 0 1px #ffffff0b;
+
+    overflow:hidden;
+}
+
+.card:before{
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    right:-90px;
+    top:-90px;
+
+    background:#a832ff;
+
+    filter:blur(85px);
+
+    opacity:.18;
+
+    pointer-events:none;
+}
+
+.card:after{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:2px;
+
+    left:25px;
+    top:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        #9d2cff,
+        transparent
+    );
+
+    box-shadow:
+    0 0 15px #9d2cff;
+}
+
+.title{
+    position:relative;
+
+    font-size:22px;
+
+    font-weight:1000;
+
+    margin-bottom:14px;
+}
+
+.title span{
+    color:#bd55ff;
+
+    text-shadow:
+    0 0 15px #8d20ff;
+}
+
+.text{
+    position:relative;
+
+    color:#b7a6c1;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* ================= BENEFIT HEADER ================= */
+
+.benefit-head{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:5px;
+}
+
+.benefit-count{
+    padding:
+    6px 10px;
+
+    border-radius:50px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    color:#d99cff;
+
+    background:#1b0827;
+
+    border:
+    1px solid #6c2890;
+
+    white-space:nowrap;
+}
+
+
+/* ================= ONE BENEFIT BOX ================= */
+
+.benefit-list{
+    position:relative;
+
+    margin-top:21px;
+
+    padding:6px;
+
+    border-radius:20px;
+
+    background:#08030d;
+
+    border:
+    1px solid #3b1850;
+
+    box-shadow:
+    inset 0 0 30px #7b20ff0d,
+    0 0 25px #7b20ff0d;
+}
+
+.benefit-item{
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:15px;
+
+    border-bottom:
+    1px solid #281332;
+
+    transition:.25s;
+}
+
+.benefit-item:last-child{
+    border-bottom:none;
+}
+
+.benefit-item > span{
+    width:40px;
+    height:40px;
+
+    min-width:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:#190822;
+
+    border:
+    1px solid #713299;
+
+    font-size:19px;
+
+    box-shadow:
+    0 0 15px #8d22ff18;
+
+    transition:.25s;
+}
+
+.benefit-item b{
+    display:block;
+
+    font-size:11px;
+
+    color:#fff;
+
+    margin-bottom:4px;
+}
+
+.benefit-item small{
+    display:block;
+
+    color:#918099;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+.benefit-item:hover{
+    background:#12051b;
+
+    padding-left:20px;
+}
+
+.benefit-item:hover > span{
+    border-color:#c04cff;
+
+    box-shadow:
+    0 0 20px #a52cff44;
+
+    transform:
+    rotate(-4deg)
+    scale(1.05);
+}
+
+
+/* ================= PRICE ================= */
+
+.product{
+    display:grid;
+
+    grid-template-columns:
+    1fr 280px;
+
+    align-items:center;
+
+    gap:30px;
+}
+
+.price-box{
+    text-align:center;
+
+    padding:24px;
+
+    border-radius:21px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #14061c,
+        #08020c
+    );
+
+    border:
+    1px solid #8c2bc1;
+
+    box-shadow:
+    inset 0 0 30px #781eff12,
+    0 0 30px #7c20ff12;
+}
+
+.price-label{
+    color:#9c8aa5;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+.price{
+    margin:5px 0;
+
+    font-size:53px;
+
+    font-weight:1000;
+
+    color:#d16aff;
+
+    text-shadow:
+    0 0 12px #9a32ff,
+    0 0 35px #771bff;
+}
+
+.tags{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin:10px 0;
+}
+
+.tags span{
+    padding:
+    6px 9px;
+
+    border-radius:50px;
+
+    background:#190820;
+
+    border:
+    1px solid #382044;
+
+    color:#c6a8d6;
+
+    font-size:9px;
+}
+
+.order{
+    display:block;
+
+    margin-top:13px;
+
+    padding:14px;
+
+    border-radius:13px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:1000;
+
+    background:
+    linear-gradient(
+        135deg,
+        #741ce0,
+        #c149ff
+    );
+
+    box-shadow:
+    0 0 25px #8b2dff44;
+
+    transition:.25s;
+}
+
+.order:hover{
+    transform:scale(1.03);
+
+    box-shadow:
+    0 0 35px #a438ff77;
+}
+
+
+/* ================= INFO ================= */
+
+.info-list{
+    margin-top:18px;
+
+    display:grid;
+
+    gap:9px;
+}
+
+.info-item{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#a99aae;
+
+    font-size:11px;
+}
+
+.check{
+    width:21px;
+    height:21px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:7px;
+
+    color:#d47aff;
+
+    background:#281037;
+
+    border:
+    1px solid #703299;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+
+    padding:
+    35px 0 45px;
+
+    color:#625568;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.footer-logo{
+    color:#a948dc;
+
+    font-size:16px;
+
+    font-weight:1000;
+
+    margin-bottom:7px;
+
+    text-shadow:
+    0 0 15px #8d22ff;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .hero{
+        padding-top:45px;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .gallery{
+        width:90%;
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:10px;
+    }
+
+    .gallery img{
+        height:145px;
+
+        border-radius:15px;
+    }
+
+    .product{
+        grid-template-columns:
+        1fr;
+    }
+
+    .price-box{
+        width:100%;
+    }
+
+    .card{
+        padding:21px;
+    }
+
+    .benefit-item{
+        padding:14px 11px;
+    }
+
+    .benefit-item:hover{
+        padding-left:15px;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .gallery{
+        width:94%;
+    }
+
+    .gallery img{
+        height:125px;
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .benefit-item > span{
+        width:37px;
+        height:37px;
+
+        min-width:37px;
+
+        font-size:17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- PARTICLES -->
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav">
+
+        <div class="logo">
+            Z-<span>XBOOST</span>
+        </div>
+
+        <div class="status">
+            <i></i>
+            PREMIUM
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="mini">
+        ⚡ FASTER • SAFER • PREMIUM
+    </div>
+
+    <h1>
+        Z-<span>XBOOST</span>
+    </h1>
+
+    <h2>
+        TOOLS PREMIUM
+    </h2>
+
+    <p>
+        
+    </p>
+  
+    </>
+
+</section>
+
+
+<!-- FOTO -->
+
+<div class="gallery">
+
+    <img
+        src="logo.png"
+        alt="Z-XBOOST Premium"
+    >
+
+    <img
+        src="logo1.png"
+        alt="Z-XBOOST"
+    >
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section class="card">
+
+    <h2 class="title">
+
+        APA ITU
+        <span>Z-XBOOST</span>
+
+    </h2>
+
+    <p class="text">
+
+        Z-XBOOST / App Tools Adalah Aplikasi Pihak Ketiga
+Untuk Android Yang Dapat Membantu Mengoptimalkan
+Pengaturan Perangkat Dan Memberikan Pengaturan Tambahan
+Agar Pengalaman Bermain Free Fire Terasa Lebih Nyaman.
+
+    </p>
+
+</section>
+
+    </div>
+  
+</section>
+
+
+<!-- PRODUCT -->
+
+<section
+    class="card product"
+    id="order"
+>
+
+
+    <div>
+
+        <h2 class="title">
+
+            BENEFIT
+            <span>Z-XBOOST</span>
+
+
+        </p>
+
+
+        <div class="info-list">
+
+            <div class="info-item">
+
+                <span class="check">✓</span>
+
+                Drag Super Ringan Ke Kepala.
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span class="check">✓</span>
+
+                Aim Lebih Stabil Dan On Point.
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span class="check">✓</span>
+
+                Membantu Mendapatkan Aim Yang Lebih Konsisten.
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span class="check">✓</span>
+
+                Membantu Mempermudah Kontrol Saat Melakukan Drag.
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span class="check">✓</span>
+
+                Membantu Menyesuaikan Sensitivitas Layar and Kontrol Agar Bidikan Terasa Lebih Stabil & Mudah Headshot.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+    </div>
+
+</section>
+  
+
+    <!-- PRICE -->
+
+    <div class="price-box">
+
+        <div class="price-label">
+            PERMANEN
+        </div>
+
+        <div class="price">
+            30K
+        </div>
+
+
+        <div class="tags">
+
+            <span>
+                ANDROID
+            </span>
+
+            <span>
+                PREMIUM
+            </span>
+
+            <span>
+                TOOLS
+            </span>
+
+        </div>
+
+
+        <a
+            class="order"
+            href="https://wa.me/6283122080567?text=Halo%20Admin%20Z-XBOOST%2C%20saya%20mau%20order%20Z-XBOOST%20Tools%20Premium%2030K."
+            target="_blank"
+        >
+
+            💬 ORDER VIA WHATSAPP
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        Z-XBOOST
+    </div>
+
+    Tools Version 1.0
+
+    <br>
+
+    TOOLS PREMIUM • 2026
+  
+</footer>
+
+
+</body>
+  </html>
